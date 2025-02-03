@@ -11,7 +11,8 @@ spec:
     path: argo-test/charts/kube-prometheus-stack
     helm:
       valueFiles:
-        - argo-test/environments/dev/kube-prometheus-stack-values.yaml
+        - valueFiles:
+        - ../../environments/dev/kube-prometheus-stack-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: kube-prometheus-stack
