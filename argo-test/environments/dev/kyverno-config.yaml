@@ -1,3 +1,19 @@
 policies:
-  - name: require-namespace-labels
-    path: policies/require-labels.yaml
+  policies:
+    - name: require-namespace-labels
+      background: true
+      failurePolicy: Fail
+      validationFailureAction: enforce
+      rules:
+        - name: require-environment-label
+          match:
+            any:
+            - resources:
+                kinds:
+                  - Namespace
+          validate:
+            message: "label 'environment' is required"
+            pattern:
+              metadata:
+                labels:
+                  environment: "?*"
