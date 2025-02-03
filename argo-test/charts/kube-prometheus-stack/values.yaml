@@ -8,7 +8,7 @@ nameOverride: ""
 
 ## Override the deployment namespace
 ##
-namespaceOverride: "kube-prometheus-stack"
+namespaceOverride: ""
 
 ## Provide a k8s version to auto dashboard import script example: kubeTargetVersionOverride: 1.26.6
 ##
@@ -24,8 +24,7 @@ fullnameOverride: ""
 
 ## Labels to apply to all resources
 ##
-commonLabels:
-  prometheus: learn
+commonLabels: {}
 # scmhash: abc123
 # myLabel: aakkmd
 
@@ -168,14 +167,14 @@ customRules: {}
 defaultRules:
   create: true
   rules:
-    alertmanager: false
+    alertmanager: true
     etcd: true
     configReloaders: true
     general: true
     k8sContainerCpuUsageSecondsTotal: true
     k8sContainerMemoryCache: true
     k8sContainerMemoryRss: true
-    k8sContainerMemorySwap: false
+    k8sContainerMemorySwap: true
     k8sContainerResource: true
     k8sContainerMemoryWorkingSetBytes: true
     k8sPodOwner: true
