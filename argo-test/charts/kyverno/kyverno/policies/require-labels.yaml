@@ -1,0 +1,19 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-namespace-labels
+spec:
+  validationFailureAction: enforce
+  rules:
+    - name: require-environment-label
+      match:
+        any:
+        - resources:
+            kinds:
+              - Namespace
+      validate:
+        message: "label 'environment' is required"
+        pattern:
+          metadata:
+            labels:
+              environment: "?*"

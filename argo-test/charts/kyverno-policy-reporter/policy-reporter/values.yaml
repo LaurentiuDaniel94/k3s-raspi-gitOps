@@ -150,7 +150,7 @@ rest:
 
 metrics:
   # -- Enables Prometheus Metrics
-  enabled: false
+  enabled: true
   # -- Metric Mode allowes to customize labels
   # Allowed values: detailed, simple, custom
   mode: detailed
