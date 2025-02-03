@@ -24,9 +24,8 @@ fullnameOverride: ""
 
 ## Labels to apply to all resources
 ##
-commonLabels: {
-  "raspi5: monitoring-stack"
-}
+commonLabels:
+  prometheus: learn
 # scmhash: abc123
 # myLabel: aakkmd
 
@@ -176,7 +175,7 @@ defaultRules:
     k8sContainerCpuUsageSecondsTotal: true
     k8sContainerMemoryCache: true
     k8sContainerMemoryRss: true
-    k8sContainerMemorySwap: true
+    k8sContainerMemorySwap: false
     k8sContainerResource: true
     k8sContainerMemoryWorkingSetBytes: true
     k8sPodOwner: true
