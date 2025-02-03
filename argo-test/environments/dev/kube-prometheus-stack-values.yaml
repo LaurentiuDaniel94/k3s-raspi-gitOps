@@ -1,0 +1,6 @@
+grafana:
+  enabled: true
+  service:
+    type: LoadBalancer
+    annotations:
+      metallb.universe.tf/address-pool: first-pool
