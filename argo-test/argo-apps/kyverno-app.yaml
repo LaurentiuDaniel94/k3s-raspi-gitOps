@@ -4,14 +4,11 @@ metadata:
   name: kyverno
   namespace: argocd
 spec:
-  project: default
   source:
-    repoURL: 'https://github.com/LaurentiuDaniel94/k3s-raspi-gitOps.git'
-    targetRevision: HEAD
-    path: argo-test/charts/kyverno
+    path: argo-test/charts/kyverno/kyverno  # Full path to chart
     helm:
-      valueFiles:
-        - ../../environments/dev/kyverno-config.yaml
+      valueFiles: 
+        - argo-test/environments/dev/kyverno-config.yaml  # Absolute path
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: kyverno

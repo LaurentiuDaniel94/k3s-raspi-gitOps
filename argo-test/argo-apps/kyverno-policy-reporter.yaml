@@ -1,18 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kyverno
+  name: kyverno-policy-reporter
   namespace: argocd
 spec:
-  project: default
   source:
-    path: charts/kyverno-policy-reporter/policy-reporter
-    repoURL: 'https://github.com/LaurentiuDaniel94/k3s-raspi-gitOps.git'
-    targetRevision: HEAD 
+    path: argo-test/charts/kyverno-policy-reporter/policy-reporter
     helm:
-      version: v3
       valueFiles:
-        - ../../environments/dev/kyverno-policy-reporter-values.yaml
+        - argo-test/environments/dev/kyverno-policy-reporter-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: kyverno
