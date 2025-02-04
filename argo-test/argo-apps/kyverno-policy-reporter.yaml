@@ -8,7 +8,7 @@ spec:
   source:
     path: charts/kyverno-policy-reporter/policy-reporter
     repoURL: 'https://github.com/LaurentiuDaniel94/k3s-raspi-gitOps.git'
-    targetRevision: HEAD
+    targetRevision: HEAD 
     helm:
       version: v3
       valueFiles:
