@@ -1,0 +1,24 @@
+# Disable replication globally
+defaultSettings:
+  defaultReplicaCount: 1
+  defaultLonghornStaticStorageClass: "longhorn-default"
+  storageClass:
+    reclaimPolicy: Delete
+    isDefaultClass: true
+
+# Configure storage class parameters
+longhorn:
+  csi:
+    storageClass:
+      create: true
+      parameters:
+        numberOfReplicas: "1"
+        staleReplicaTimeout: "2880"
+        fromBackup: ""
+        fsType: "ext4"
+
+# Disable replica auto-balancing and background maintenance
+  replicaAutoBalance: "disabled"
+  concurrentReplicaRebuildPerNodeLimit: 0
+  replicaDiskSoftAntiAffinity: "false"
+  replicaReplenishmentWaitInterval: "0"
