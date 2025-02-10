@@ -41,7 +41,7 @@ global:
   serverTelemetry:
     # Enable integration with the Prometheus Operator
     # See the top level serverTelemetry section below before enabling this feature.
-    prometheusOperator: false
+    prometheusOperator: true
 
 injector:
   # True if you want to enable vault agent injection.

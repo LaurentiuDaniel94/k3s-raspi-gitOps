@@ -1,2 +1,24 @@
 global:
   namespace: "apps"
+  storageClass: longhorn
+
+server:
+  dataStorage:
+    enabled: true
+    size: 10Gi
+    storageClass: longhorn
+  auditStorage:
+    enabled: true
+    size: 5Gi
+    storageClass: longhorn
+  extraContainers:
+  - name: vault-init
+    image: vault:1.12.2
+    command: ["vault", "operator", "init"]
+    envFrom:
+    - secretRef:
+        name: vault-credentials 
+
+
+  serverTelemetry:
+    prometheusOperator: true
