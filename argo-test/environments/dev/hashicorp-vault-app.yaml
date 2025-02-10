@@ -1,0 +1,22 @@
+# environments/dev/longhorn-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hashicorp-vault
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/LaurentiuDaniel94/k3s-raspi-gitOps.git
+    path: charts/vault/vault
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - environments/dev/hashicorp-vault-values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: apps
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
